@@ -1,0 +1,57 @@
+.menuButton {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s background-color;
+  opacity: 0;
+  animation: showMenuButton 1s ease forwards;
+
+  @keyframes showMenuButton {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .menuFirstLine {
+    position: absolute;
+    font-size: 28px;
+    top: 0;
+    left: 6px;
+    right: 6px;
+    transition: 0.4s transform, 0.4s top;
+  }
+
+  .menuSecondLine {
+    position: absolute;
+    font-size: 28px;
+    bottom: 0;
+    left: 6px;
+    right: 6px;
+    transition: 0.4s transform, 0.4s bottom;
+  }
+
+  &.active {
+    .menuFirstLine {
+      transform: rotate(45deg);
+      top: 6px;
+    }
+
+    .menuSecondLine {
+      transform: rotate(-45deg);
+      bottom: 6px;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menuButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
