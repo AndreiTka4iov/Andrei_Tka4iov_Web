@@ -51,6 +51,10 @@
     color: #888;
     transition: 0.2s color;
 
+    @media screen and (min-width: 1050px) {
+      font-size: 16px;
+    }
+
     &.links {
       opacity: 0;
       transform: translateY(-100px);
