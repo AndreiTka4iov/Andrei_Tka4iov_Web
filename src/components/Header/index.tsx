@@ -1,4 +1,4 @@
-import { Image } from "@mantine/core";
+import { Button, Flex, Image } from "@mantine/core";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,7 +21,19 @@ const Header = () => {
         />
       </Link>
       {width < 840 ? (
-        <MenuButton open={open} onClick={() => setOpen(!open)} />
+        <Flex gap={12} align={"center"}>
+          {width > 530 && (
+            <Button
+              variant="gradient"
+              gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
+              radius="md"
+              className={styles.button}
+            >
+              Contact Me
+            </Button>
+          )}
+          <MenuButton open={open} onClick={() => setOpen(!open)} />
+        </Flex>
       ) : (
         <NavLinks />
       )}
