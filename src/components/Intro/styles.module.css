@@ -12,7 +12,7 @@
     &::before {
       content: "";
       position: absolute;
-      width: calc(100% + 150px);
+      width: 0;
       left: calc(150px / 2 * -1);
       height: 1px;
       background: linear-gradient(
@@ -28,6 +28,7 @@
         linear-gradient(#000, #000);
       -webkit-mask-composite: destination-in;
       mask-composite: exclude;
+      animation: intro_widthOffset 1.08s cubic-bezier(0.645,0.045,0.355,1) forwards;
     }
 
     .descr {
@@ -56,7 +57,7 @@
       &::after {
         content: "";
         position: absolute;
-        width: calc(100% + 150px);
+        width: 0;
         left: calc(150px / 2 * -1);
         height: 1px;
         background: linear-gradient(
@@ -73,6 +74,7 @@
         -webkit-mask-composite: destination-in;
         mask-composite: exclude;
         bottom: -0.1px;
+        animation: intro_widthOffset 1.08s cubic-bezier(0.645,0.045,0.355,1) forwards;
       }
 
       .sectionACtionButton {
@@ -80,6 +82,12 @@
         padding: 40px;
         width: min-content;
       }
+    }
+  }
+
+  @keyframes intro_widthOffset {
+    100% {
+      width: calc(100% + 150px);
     }
   }
 }

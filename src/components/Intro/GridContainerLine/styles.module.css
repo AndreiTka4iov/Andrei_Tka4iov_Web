@@ -1,7 +1,7 @@
 .line {
   position: absolute;
   width: 1px;
-  height: 100%;
+  height: 0;
   top: 0;
   background: linear-gradient(
     180deg,
@@ -11,6 +11,13 @@
     transparent
   );
   background-size: 1px 5px;
+  animation: intro_heightOffset 1.08s cubic-bezier(0.645,0.045,0.355,1) forwards;
+
+  @keyframes intro_heightOffset {
+    100% {
+      height: 100%
+    }
+  }
 
   top: 0;
 
