@@ -1,0 +1,30 @@
+.line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, calc(0.15 * 3)),
+    rgba(255, 255, 255, calc(0.15 * 3)) 50%,
+    transparent 0,
+    transparent
+  );
+  background-size: 1px 5px;
+
+  top: 0;
+
+  &[data-side="left"] {
+    left: 0;
+  }
+  &[data-side="right"] {
+    right: 0;
+  }
+  &[data-fade="true"] {
+    -webkit-mask-composite: destination-in;
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(to top, #000 93%, transparent),
+      linear-gradient(to bottom, #000 93%, transparent),
+      linear-gradient(#000, #000);
+  }
+}

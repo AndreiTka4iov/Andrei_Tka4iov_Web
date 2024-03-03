@@ -1,18 +1,16 @@
-import Layout from "@/components/Layout";
-import styles from "@/styles/Home/styles.module.css"
-import { Modal, Text } from "@mantine/core";
+import Intro from "@/components/Intro";
+import { Container} from "@mantine/core";
+import Head from "next/head";
 
 const Home = () => {
 
   return (
-    <Modal
-      size="sm"
-      opened={true}
-      onClose={() => {}}
-      title="Настройки таблицы"
-    >
-
-    </Modal>);
+    <Container mt={80}>
+      <Head>
+        <title>Portfolio</title>
+      </Head>
+      <Intro/>
+    </Container>);
 }
 
 export default Home
