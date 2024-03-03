@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   z-index: 1000;
@@ -14,27 +14,43 @@
   -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(180%) blur(5px);
 
+  .headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 64px;
+    padding: 0 24px;
+  }
+
   .logo {
-    overflow: hidden;
+    display: flex;
+    align-items: center;
 
-    &:focus-visible {
-      outline-color: #6350d8;
-    }
+    .homeBtn {
+      margin-left: 6px;
+      width: fit-content;
+      overflow: hidden;
 
-    .logoImage {
-      transform: translateX(-100px);
-      opacity: 0;
-      animation: showLogo 1s ease forwards;
-    }
-
-    @keyframes showLogo {
-      0% {
+      .text {
+        background: linear-gradient(180deg, #fff, #adadad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         transform: translateX(-100px);
         opacity: 0;
-      }
-      100% {
-        transform: translateX(0px);
-        opacity: 1;
+        animation: showLogo 1s ease-in-out forwards;
+
+        @keyframes showLogo {
+          0% {
+            transform: translateX(-100px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0px);
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -73,7 +89,7 @@
       }
     }
 
-    &.socialLinks{
+    &.socialLinks {
       opacity: 0;
       transform: translateX(100px);
       animation: showSocialLink 0.7s ease forwards;

@@ -1,4 +1,4 @@
-import { Button, Flex, Image } from "@mantine/core";
+import { Box, Button, Flex, Text } from "@mantine/core";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { useState } from "react";
@@ -12,31 +12,35 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link href={"/"} className={styles.logo}>
-        <Image
-          src={"/logo.svg"}
-          alt={"logo"}
-          height={32}
-          className={styles.logoImage}
-        />
-      </Link>
-      {width < 840 ? (
-        <Flex gap={12} align={"center"}>
-          {width > 530 && (
-            <Button
-              variant="gradient"
-              gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
-              radius="md"
-              className={styles.button}
-            >
-              Contact Me
-            </Button>
-          )}
-          <MenuButton open={open} onClick={() => setOpen(!open)} />
-        </Flex>
-      ) : (
-        <NavLinks />
-      )}
+      <section className={styles.headerSection}>
+        <Link href={"/"} className={styles.logo}>
+          <Text size={"lg"} color="#888">
+            /
+          </Text>
+          <Box className={styles.homeBtn}>
+            <Text className={styles.text} size="lg" fw={600}>
+              Portfolio
+            </Text>
+          </Box>
+        </Link>
+        {width < 840 ? (
+          <Flex gap={12} align={"center"}>
+            {width > 530 && (
+              <Button
+                variant="gradient"
+                gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
+                radius="md"
+                className={styles.button}
+              >
+                Contact Me
+              </Button>
+            )}
+            <MenuButton open={open} onClick={() => setOpen(!open)} />
+          </Flex>
+        ) : (
+          <NavLinks />
+        )}
+      </section>
     </header>
   );
 };

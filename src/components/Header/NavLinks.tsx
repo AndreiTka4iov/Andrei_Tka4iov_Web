@@ -12,22 +12,26 @@ const NavLinks = () => {
   const style2 = { "--i": 2 } as React.CSSProperties;
   const style3 = { "--i": 3 } as React.CSSProperties;
   const style4 = { "--i": 4 } as React.CSSProperties;
-  const style5 = { "--l": 1 } as React.CSSProperties;
-  const style6 = { "--l": 2 } as React.CSSProperties;
-  const style7 = { "--l": 3 } as React.CSSProperties;
+  const style5 = { "--i": 5 } as React.CSSProperties;
+  const style6 = { "--l": 1 } as React.CSSProperties;
+  const style7 = { "--l": 2 } as React.CSSProperties;
+  const style8 = { "--l": 3 } as React.CSSProperties;
 
   return (
     <nav className={styles.navLinks}>
-      <Link href={"#about"} style={style1} className={styles.links}>
+      <Link href={"/about"} style={style1} className={styles.links}>
         About Me <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"#education"} style={style2} className={styles.links}>
+      <Link href={"/projects"} style={style2} className={styles.links}>
+        Projects <IoIosArrowRoundForward className={styles.linkIcon} />
+      </Link>
+      <Link href={"/education"} style={style3} className={styles.links}>
         Education <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"#about"} style={style3} className={styles.links}>
+      <Link href={"/skils"} style={style4} className={styles.links}>
         Skills <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"#experience"} style={style4} className={styles.links}>
+      <Link href={"/experience"} style={style5} className={styles.links}>
         Experience <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
       <Container className={styles.clearButton} />
@@ -44,7 +48,7 @@ const NavLinks = () => {
         href="https://t.me/tcka4"
         target="_blank"
         rel="noreferrer"
-        style={style5}
+        style={style6}
         className={styles.socialLinks}
       >
         <UnstyledButton onClick={() => {}} className={styles.mainLink}>
@@ -58,7 +62,7 @@ const NavLinks = () => {
         href="mailto:andrei.tkachiov@gmail.com"
         target="_blank"
         rel="noreferrer"
-        style={style6}
+        style={style7}
         className={styles.socialLinks}
       >
         <UnstyledButton onClick={() => {}} className={styles.mainLink}>
@@ -72,7 +76,7 @@ const NavLinks = () => {
         href="https://github.com/AndreiTka4iov"
         target="_blank"
         rel="noreferrer"
-        style={style7}
+        style={style8}
         className={styles.socialLinks}
       >
         <UnstyledButton onClick={() => {}} className={styles.mainLink}>
