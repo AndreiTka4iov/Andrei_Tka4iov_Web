@@ -5,9 +5,12 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import React from "react";
+import React, { FC } from "react";
 
-const NavLinks = () => {
+interface NavLinksProps {
+  toggleModal: () => void;
+}
+const NavLinks: FC<NavLinksProps> = ({ toggleModal }) => {
   const style1 = { "--i": 1 } as React.CSSProperties;
   const style2 = { "--i": 2 } as React.CSSProperties;
   const style3 = { "--i": 3 } as React.CSSProperties;
@@ -41,6 +44,7 @@ const NavLinks = () => {
         size="xs"
         radius="md"
         className={styles.button}
+        onClick={toggleModal}
       >
         Contact Me
       </Button>

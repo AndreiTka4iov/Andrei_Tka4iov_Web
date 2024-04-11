@@ -28,7 +28,21 @@
         linear-gradient(#000, #000);
       -webkit-mask-composite: destination-in;
       mask-composite: exclude;
-      animation: intro_widthOffset 1.08s cubic-bezier(0.645,0.045,0.355,1) forwards;
+      animation: intro_widthOffset 1.08s cubic-bezier(0.645, 0.045, 0.355, 1)
+        forwards;
+    }
+
+    .title {
+      background: linear-gradient(180deg, #fff, #adadad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: max(48px, min(5vw, 76px));
+      line-height: 1;
+      letter-spacing: -0.05em;
+      padding: 24px;
+      position: relative;
+      max-width: 1250px;
     }
 
     .descr {
@@ -74,7 +88,8 @@
         -webkit-mask-composite: destination-in;
         mask-composite: exclude;
         bottom: -0.1px;
-        animation: intro_widthOffset 1.08s cubic-bezier(0.645,0.045,0.355,1) forwards;
+        animation: intro_widthOffset 1.08s cubic-bezier(0.645, 0.045, 0.355, 1)
+          forwards;
       }
 
       .sectionACtionButton {
@@ -92,14 +107,48 @@
   }
 }
 
-.title {
-  background: linear-gradient(180deg, #fff, #adadad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  font-size: max(48px, min(5vw, 76px));
-  line-height: 1;
-  letter-spacing: -0.05em;
-  padding: 24px;
-  position: relative;
+@media screen and (max-width: 560px) {
+  .container {
+    padding: 0;
+    .bodyIntro {
+      &::before {
+        left: 0;
+      }
+
+      .title {
+        font-size: 32px;
+        padding: 12px;
+        max-width: 100%;
+      }
+
+      .after {
+        &::after {
+          left: 0;
+        }
+      }
+    }
+
+    @keyframes intro_widthOffset {
+      100% {
+        width: calc(100%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    .bodyIntro {
+      .title {
+        padding: 12px !important;
+      }
+      .after {
+        padding: 12px !important;
+      }
+
+      .sectionACtionButton {
+        padding: 12px !important;
+      }
+    }
+  }
 }

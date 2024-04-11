@@ -5,10 +5,16 @@ import { useState } from "react";
 import MenuButton from "../Button/MenuButton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import NavLinks from "./NavLinks";
+import { useAppDispatch } from "@/hooks/redux";
+import { globalSlice } from "@/store/global/GlobalSlice";
 
 const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
   const { width } = useWindowSize();
+
+  const dispatch = useAppDispatch();
+  const { toggleContactModal } = globalSlice.actions;
+  const toggleModal = () => dispatch(toggleContactModal());
 
   return (
     <header className={styles.header}>
@@ -31,6 +37,7 @@ const Header = () => {
                 gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
                 radius="md"
                 className={styles.button}
+                onClick={toggleModal}
               >
                 Contact Me
               </Button>
@@ -38,7 +45,7 @@ const Header = () => {
             <MenuButton open={open} onClick={() => setOpen(!open)} />
           </Flex>
         ) : (
-          <NavLinks />
+          <NavLinks toggleModal={toggleModal}/>
         )}
       </section>
     </header>

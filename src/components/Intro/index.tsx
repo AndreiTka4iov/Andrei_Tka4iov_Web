@@ -14,7 +14,7 @@ const Intro = () => {
       <GridContainerLine dataSide="left" />
       <GridContainerLine dataSide="right" />
       <Flex direction={"column"} align={"center"}>
-        <SectionIntro />
+        <SectionIntro width={bottomSectionWidth}/>
         <Flex
           direction={"column"}
           align={"center"}

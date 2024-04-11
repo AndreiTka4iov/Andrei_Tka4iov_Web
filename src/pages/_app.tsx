@@ -9,6 +9,7 @@ import Head from "next/head";
 import { useVariantColorResolver } from "@/hooks/useVariantColorResolver";
 import { Provider } from "react-redux";
 import { setupStore } from "@/store/store";
+import Modals from "@/modals";
 
 const variantColorResolver = useVariantColorResolver;
 const store = setupStore();
@@ -18,6 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <Fragment>
       <Head>
         <ColorSchemeScript />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
       </Head>
       <Provider store={store}>
         <MantineProvider
@@ -25,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
           theme={{ variantColorResolver }}
         >
           <Layout>
+            <Modals />
             <Component {...pageProps} />
           </Layout>
         </MantineProvider>
