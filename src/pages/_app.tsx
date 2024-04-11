@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 
 import type { AppProps } from "next/app";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
@@ -10,6 +11,7 @@ import { useVariantColorResolver } from "@/hooks/useVariantColorResolver";
 import { Provider } from "react-redux";
 import { setupStore } from "@/store/store";
 import Modals from "@/modals";
+import { Notifications } from "@mantine/notifications";
 
 const variantColorResolver = useVariantColorResolver;
 const store = setupStore();
@@ -29,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
           defaultColorScheme="dark"
           theme={{ variantColorResolver }}
         >
+          <Notifications />
           <Layout>
             <Modals />
             <Component {...pageProps} />

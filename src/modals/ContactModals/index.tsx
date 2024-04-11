@@ -1,45 +1,48 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { globalSlice } from "@/store/global/GlobalSlice";
 import {
   Button,
   Flex,
   Image,
-  Indicator,
   Input,
   Modal,
   Text,
   Textarea,
-  UnstyledButton,
 } from "@mantine/core";
-import { FormEvent, useMemo, useState } from "react";
 import { IconAt, IconBrandTelegram, IconUser } from "@tabler/icons-react";
 import styles from "./stylex.module.css";
-import { useDebouncedValue } from "@mantine/hooks";
+import { useContactModal } from "@/hooks/modals/useContactModal";
+import { FormEvent, useEffect } from "react";
+import { notifications } from "@mantine/notifications";
+import { IconCheck } from "@tabler/icons-react";
 
 const ContactModal = () => {
-  const [emailValue, setEmailValue] = useState<string>("");
+  const {
+    contactModal,
+    toggleModal,
+    validateEmail,
 
-  const [emailValueDebounce] = useDebouncedValue<string>(emailValue, 400);
-
-  const { contactModal } = useAppSelector((state) => state.globalSlice);
-  const { toggleContactModal } = globalSlice.actions;
-  const dispatch = useAppDispatch();
-
-  const toggleModal = () => dispatch(toggleContactModal());
+    emailValue,
+    setEmailValue,
+    telegramValue,
+    setTelegramValue,
+    nameValue,
+    setNameValue,
+    messageValue,
+    setMessageValue,
+  } = useContactModal();
 
   const sendContactInfo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    toggleModal();
+    notifications.show({
+      title: "succesful",
+      message: "send",
+      withCloseButton: true,
+      autoClose: 3000,
+      color: "teal",
+      icon: <IconCheck />,
+    });
   };
-
-  const validateEmail = useMemo<boolean>(() => {
-    if (!emailValue) return true;
-
-    const validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-    if (emailValueDebounce.match(validRegex)) return true;
-    else return false;
-  }, [emailValueDebounce]);
 
   return (
     <Modal.Root
@@ -91,8 +94,8 @@ const ContactModal = () => {
                 placeholder="Telegram"
                 variant="filled"
                 leftSection={<IconBrandTelegram size={16} />}
-                onChange={(e) => setEmailValue(e.currentTarget.value)}
-                value={emailValue}
+                onChange={(e) => setTelegramValue(e.currentTarget.value)}
+                value={telegramValue}
               />
             </Input.Wrapper>
             <Input.Wrapper
@@ -105,8 +108,8 @@ const ContactModal = () => {
                 placeholder="Name"
                 variant="filled"
                 leftSection={<IconUser size={16} />}
-                onChange={(e) => setEmailValue(e.currentTarget.value)}
-                value={emailValue}
+                onChange={(e) => setNameValue(e.currentTarget.value)}
+                value={nameValue}
               />
             </Input.Wrapper>
             <Textarea
@@ -116,18 +119,14 @@ const ContactModal = () => {
               placeholder="Your message"
               required
               w={"100%"}
+              onChange={(e) => setMessageValue(e.target.value)}
+              value={messageValue}
             />
-            <Flex className={styles.actionButtonBlock}>
-              <Button
-                w={"50%"}
-                variant="subtle"
-                color="gray"
-                onClick={toggleModal}
-              >
+            <Flex gap={16} className={styles.actionButtonBlock}>
+              <Button w={"50%"} variant="default" onClick={toggleModal}>
                 Close
               </Button>
-              <hr className={styles.hr} />
-              <Button w={"50%"} variant="subtle" color="violet">
+              <Button type="submit" w={"50%"} variant="filled" color="violet">
                 Send
               </Button>
             </Flex>

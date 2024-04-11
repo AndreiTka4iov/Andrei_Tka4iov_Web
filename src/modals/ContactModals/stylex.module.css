@@ -32,15 +32,6 @@
 
     .actionButtonBlock {
       width: 100%;
-      border-top: 1px solid #888;
-
-      .hr {
-        background-color: #888;
-        border: none;
-        height: 36px;
-        width: 1px;
-        margin: 0;
-      }
     }
   }
 }
