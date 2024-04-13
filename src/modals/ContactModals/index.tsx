@@ -63,7 +63,7 @@ const ContactModal = () => {
     } catch {
       notifications.show({
         title: "Error",
-        message: 'An unforeseen error occurred. Try again later.',
+        message: "An unforeseen error occurred. Try again later.",
         withCloseButton: true,
         autoClose: 3000,
         color: "red",
@@ -168,7 +168,15 @@ const ContactModal = () => {
               <Button w={"50%"} variant="default" onClick={toggleModal}>
                 Close
               </Button>
-              <Button type="submit" w={"50%"} variant="filled" color="violet">
+              <Button
+                type="submit"
+                w={"50%"}
+                variant="filled"
+                color="violet"
+                disabled={
+                  (!telegramValue && !emailValue) || !nameValue || !messageValue
+                }
+              >
                 Send
               </Button>
             </Flex>
