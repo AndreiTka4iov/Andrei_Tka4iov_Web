@@ -35,12 +35,12 @@ const ActionButtons = () => {
             <Menu.Target>
               <Button variant={"outline"} color="gray" size="md" radius={"md"}>
                 {" "}
-                Lern Portfolio
+                Learn Portfolio
               </Button>
             </Menu.Target>
 
             <Menu.Dropdown bg={'#111'}>
-              <Menu.Label>Lern Portfolio</Menu.Label>
+              <Menu.Label>Learn Portfolio</Menu.Label>
               <Menu.Item
                 leftSection={<SiAboutdotme />}
                 component="a"
