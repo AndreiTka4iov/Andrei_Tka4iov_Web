@@ -3,6 +3,7 @@ import {
   Flex,
   Image,
   Input,
+  LoadingOverlay,
   Modal,
   Text,
   Textarea,
@@ -10,15 +11,22 @@ import {
 import { IconAt, IconBrandTelegram, IconUser } from "@tabler/icons-react";
 import styles from "./stylex.module.css";
 import { useContactModal } from "@/hooks/modals/useContactModal";
-import { FormEvent, useEffect } from "react";
+import { FormEvent } from "react";
 import { notifications } from "@mantine/notifications";
-import { IconCheck } from "@tabler/icons-react";
+import { IconCheck, IconX } from "@tabler/icons-react";
+import { contactApi } from "@/API/contact/route";
+import { error } from "console";
 
 const ContactModal = () => {
   const {
     contactModal,
     toggleModal,
+    clearModal,
+
     validateEmail,
+
+    isLoading,
+    setIsLoading,
 
     emailValue,
     setEmailValue,
@@ -30,18 +38,42 @@ const ContactModal = () => {
     setMessageValue,
   } = useContactModal();
 
-  const sendContactInfo = (e: FormEvent<HTMLFormElement>) => {
+  const sendContactInfo = async (e: FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
     e.preventDefault();
 
-    toggleModal();
-    notifications.show({
-      title: "succesful",
-      message: "send",
-      withCloseButton: true,
-      autoClose: 3000,
-      color: "teal",
-      icon: <IconCheck />,
-    });
+    if ((!emailValue && !telegramValue) || !nameValue || !messageValue) return;
+
+    try {
+      await contactApi({
+        email: emailValue,
+        telegram: telegramValue,
+        name: nameValue,
+        message: messageValue,
+      });
+
+      notifications.show({
+        title: "All good!",
+        message: "Your message has been successfully delivered.",
+        withCloseButton: true,
+        autoClose: 3000,
+        color: "teal",
+        icon: <IconCheck />,
+      });
+    } catch {
+      notifications.show({
+        title: "Error",
+        message: 'An unforeseen error occurred. Try again later.',
+        withCloseButton: true,
+        autoClose: 3000,
+        color: "red",
+        icon: <IconX />,
+      });
+    } finally {
+      toggleModal();
+      clearModal();
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -51,11 +83,21 @@ const ContactModal = () => {
       centered
       zIndex={1000}
     >
-      <Modal.Overlay blur={2} />
-      <Modal.Content bg={"#000"} className={styles.modalContent}>
+      <Modal.Overlay blur={2.5} />
+      <Modal.Content
+        bg={"#000"}
+        className={styles.modalContent}
+        pos={"relative"}
+      >
+        <LoadingOverlay
+          visible={isLoading}
+          zIndex={1000}
+          overlayProps={{ radius: "sm", blur: 2 }}
+          loaderProps={{ color: "violet" }}
+        />
         <Modal.Body p={0} bg={"#000"}>
           <Image
-            src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzPNlG0WChytqPZpCKa2ypk7xjJnLUDiTpdp1bmzIvpw&s`}
+            src={`https://www.shutterstock.com/image-illustration/pink-blue-purple-violet-gradient-600nw-794469784.jpg`}
             w={"100%"}
           />
           <form onSubmit={sendContactInfo} className={styles.form}>

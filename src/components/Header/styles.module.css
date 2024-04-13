@@ -126,6 +126,10 @@
       border: none;
       outline-color: #6350d8;
     }
+    &:focus {
+      border: none;
+      outline-color: #6350d8;
+    }
   }
 
   .clearButton {

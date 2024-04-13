@@ -1,22 +1,20 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface homeState {
-    contactModal: boolean
-};
-
-const initialState: homeState = {
-    contactModal: false
+  contactModal: boolean;
 }
 
+const initialState: homeState = {
+  contactModal: false,
+};
+
 export const globalSlice = createSlice({
-  name: 'global',
+  name: "global",
   initialState,
   reducers: {
     toggleContactModal(state) {
-        state.contactModal = !state.contactModal
-        console.log( state.contactModal);
-        
-    }
+      state.contactModal = !state.contactModal;
+    },
   },
 });
 

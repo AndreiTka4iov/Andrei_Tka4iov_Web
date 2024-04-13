@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+const nextjsCors = require( 'nextjs-cors')
 
-module.exports = nextConfig;
+module.exports = {
+  middleware: [nextjsCors]
+};

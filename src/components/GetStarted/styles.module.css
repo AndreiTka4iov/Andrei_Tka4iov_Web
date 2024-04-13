@@ -1,0 +1,23 @@
+.wrapper {
+  margin-top: 200px;
+  width: 100%;
+
+  .title {
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.04rem;
+    font-weight: 700;
+
+    background: linear-gradient(180deg, #fff, #adadad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.01rem;
+    color: rgb(136, 136, 136);
+  }
+}

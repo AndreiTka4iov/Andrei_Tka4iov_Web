@@ -6,7 +6,7 @@ import MenuButton from "../Button/MenuButton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import NavLinks from "./NavLinks";
 import { useAppDispatch } from "@/hooks/redux";
-import { globalSlice } from "@/store/global/GlobalSlice";
+import { globalSlice } from "@/store/global/globalSlice";
 
 const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -45,7 +45,7 @@ const Header = () => {
             <MenuButton open={open} onClick={() => setOpen(!open)} />
           </Flex>
         ) : (
-          <NavLinks toggleModal={toggleModal}/>
+          <NavLinks toggleModal={toggleModal} />
         )}
       </section>
     </header>

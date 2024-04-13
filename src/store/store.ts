@@ -1,16 +1,16 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import homeSlice from "./home/homeSlice"
-import globalSlice from './global/GlobalSlice';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import homeSlice from "./home/homeSlice";
+import globalSlice from "./global/globalSlice";
 
 const rootReducer = combineReducers({
   homeSlice,
-  globalSlice
+  globalSlice,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: getDefaultMiddleware =>
+    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: false,
       }),
@@ -19,4 +19,4 @@ export const setupStore = () => {
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = AppStore["dispatch"];

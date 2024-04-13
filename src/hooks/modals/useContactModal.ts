@@ -1,13 +1,15 @@
 import { useDebouncedValue } from "@mantine/hooks";
 import { useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux";
-import { globalSlice } from "@/store/global/GlobalSlice";
+import { globalSlice } from "@/store/global/globalSlice";
 
 export const useContactModal = () => {
-  const [emailValue, setEmailValue] = useState<string>("");
-  const [telegramValue, setTelegramValue] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [nameValue, setNameValue] = useState<string>("");
+  const [emailValue, setEmailValue] = useState<string>("");
   const [messageValue, setMessageValue] = useState<string>("");
+  const [telegramValue, setTelegramValue] = useState<string>("");
 
   const [emailValueDebounce] = useDebouncedValue<string>(emailValue, 400);
 
@@ -27,11 +29,23 @@ export const useContactModal = () => {
     else return false;
   }, [emailValueDebounce]);
 
+  const clearModal = () => {
+    setNameValue("");
+    setEmailValue("");
+    setMessageValue("");
+    setTelegramValue("");
+  };
+
   return {
     contactModal,
     toggleModal,
+    clearModal,
+
     validateEmail,
-    
+
+    isLoading,
+    setIsLoading,
+
     emailValue,
     setEmailValue,
     telegramValue,
