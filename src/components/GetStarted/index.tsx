@@ -79,7 +79,7 @@ const GetStarted = () => {
           href="https://github.com/AndreiTka4iov"
           className={styles.linkButton}
         >
-          <FaGithub /> GitHub
+          <FaGithub className={styles.icon} /> GitHub
         </a>
         <a href="https://t.me/tcka4" className={styles.linkButton}>
           <BiLogoTelegram className={styles.icon} /> Telegram
@@ -156,7 +156,7 @@ const GetStarted = () => {
           type="submit"
           variant="filled"
           color="violet"
-          ml={'auto'}
+          ml={"auto"}
           loading={isLoading}
           disabled={
             (!telegramValue && !emailValue) || !nameValue || !messageValue
