@@ -20,4 +20,56 @@
     letter-spacing: -0.01rem;
     color: rgb(136, 136, 136);
   }
+
+  .linksBody {
+    padding: 0;
+    width: 100%;
+
+    .linkButton {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+
+      &:hover {
+        color: #6350d8;
+
+        .icon {
+          fill: #6350d8;
+        }
+      }
+    }
+
+    &::after {
+      display: inline-block;
+      content: "";
+      border-top: 1px solid #888;
+      width: 100%;
+      margin-top: 32px;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 0;
+
+    .orBlock {
+      display: flex;
+      align-items: center;
+      color: #888;
+      font-size: 12px;
+
+      &::before,
+      &::after {
+        display: inline-block;
+        content: "";
+        border-top: 1px solid #888;
+        width: 100px;
+        margin: 0 16px;
+      }
+    }
+  }
 }

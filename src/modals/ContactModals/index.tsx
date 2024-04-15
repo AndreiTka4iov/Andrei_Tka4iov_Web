@@ -15,7 +15,6 @@ import { FormEvent } from "react";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import { contactApi } from "@/API/contact/route";
-import { error } from "console";
 
 const ContactModal = () => {
   const {
