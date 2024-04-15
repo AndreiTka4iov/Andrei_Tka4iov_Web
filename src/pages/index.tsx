@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const Home = () => {
   return (
-    <Container mt={80}>
+    <Container mt={80} w={'100%'}>
       <Head>
         <title>Portfolio</title>
       </Head>

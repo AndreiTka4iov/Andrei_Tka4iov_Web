@@ -1,6 +1,7 @@
 .container {
   position: relative;
   width: fit-content;
+  max-width: calc(100% - 150px);
 
   .sectionIntro {
     position: relative;
@@ -110,15 +111,17 @@
 @media screen and (max-width: 560px) {
   .container {
     padding: 0;
+    max-width: 100%;
+
     .bodyIntro {
       &::before {
         left: 0;
+        max-width: 100%;
       }
 
       .title {
         font-size: 32px;
         padding: 12px;
-        max-width: 100%;
       }
 
       .after {
