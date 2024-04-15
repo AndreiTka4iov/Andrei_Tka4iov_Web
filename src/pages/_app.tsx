@@ -25,7 +25,8 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png"/>
       </Head>
       <Provider store={store}>
         <MantineProvider
