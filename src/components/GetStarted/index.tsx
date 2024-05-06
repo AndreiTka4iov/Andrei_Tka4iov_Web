@@ -1,4 +1,12 @@
-import { Button, Flex, Input, Text, Textarea, Title } from "@mantine/core";
+import {
+  Button,
+  Container,
+  Flex,
+  Input,
+  Text,
+  Textarea,
+  Title,
+} from "@mantine/core";
 import styles from "./styles.module.css";
 import { BiLogoTelegram } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
@@ -67,104 +75,114 @@ const GetStarted = () => {
   };
   return (
     <div className={styles.wrapper} id="wrapper">
-      <Title className={styles.title}>
-        How do you get started working with me?
-      </Title>
-      <Text className={styles.text}>
-        After reviewing my portfolio, do you have questions, need help, or have
-        a job offer? Please use one of the following methods to contact me.
-      </Text>
-      <Flex mt={32} direction={"column"} gap={16} className={styles.linksBody}>
-        <a
-          href="https://github.com/AndreiTka4iov"
-          className={styles.linkButton}
+      <Container className={styles.contaner}>
+        <Title className={styles.title}>
+          How do you get started working with me?
+        </Title>
+        <Text className={styles.text}>
+          After reviewing my portfolio, do you have questions, need help, or
+          have a job offer? Please use one of the following methods to contact
+          me.
+        </Text>
+        <Flex
+          mt={32}
+          direction={"column"}
+          gap={16}
+          className={styles.linksBody}
         >
-          <FaGithub className={styles.icon} /> GitHub
-        </a>
-        <a href="https://t.me/tcka4" className={styles.linkButton}>
-          <BiLogoTelegram className={styles.icon} /> Telegram
-        </a>
-        <a
-          href="mailto:andrei.tkachiov@gmail.com"
-          className={styles.linkButton}
-        >
-          <IoMdMail className={styles.icon} /> andrei.tkachiov@gmail.com
-        </a>
-      </Flex>
-      <form onSubmit={sendContactInfo} className={styles.form}>
-        <Input.Wrapper
-          label="Your email"
-          description="Enter your e-mail address so I can contact you."
-          error={!validateEmail && "Email is invalid"}
-          w={"100%"}
-        >
-          <Input
-            type="email"
-            placeholder="Email"
-            variant="filled"
-            leftSection={<IconAt size={16} />}
-            onChange={(e) => setEmailValue(e.currentTarget.value)}
-            value={emailValue}
-          />
-        </Input.Wrapper>
-        <span className={styles.orBlock}>
-          OR{" "}
-          <Text color="red" ml={2}>
-            *
-          </Text>
-        </span>
+          <a
+            href="https://github.com/AndreiTka4iov"
+            className={styles.linkButton}
+          >
+            <FaGithub className={styles.icon} /> GitHub
+          </a>
+          <a href="https://t.me/tcka4" className={styles.linkButton}>
+            <BiLogoTelegram className={styles.icon} /> Telegram
+          </a>
+          <a
+            href="mailto:andrei.tkachiov@gmail.com"
+            className={styles.linkButton}
+          >
+            <IoMdMail className={styles.icon} /> andrei.tkachiov@gmail.com
+          </a>
+        </Flex>
+      </Container>
+      <Container className={styles.contaner}>
+        <form onSubmit={sendContactInfo} className={styles.form}>
+          <Input.Wrapper
+            label="Your email"
+            description="Enter your e-mail address so I can contact you."
+            error={!validateEmail && "Email is invalid"}
+            w={"100%"}
+          >
+            <Input
+              type="email"
+              placeholder="Email"
+              variant="filled"
+              leftSection={<IconAt size={16} />}
+              onChange={(e) => setEmailValue(e.currentTarget.value)}
+              value={emailValue}
+            />
+          </Input.Wrapper>
+          <span className={styles.orBlock}>
+            OR{" "}
+            <Text color="red" ml={2}>
+              *
+            </Text>
+          </span>
 
-        <Input.Wrapper
-          label="Your telegram"
-          description="Enter your telegram address so I can contact you."
-          w={"100%"}
-        >
-          <Input
-            placeholder="Telegram"
+          <Input.Wrapper
+            label="Your telegram"
+            description="Enter your telegram address so I can contact you."
+            w={"100%"}
+          >
+            <Input
+              placeholder="Telegram"
+              variant="filled"
+              leftSection={<IconBrandTelegram size={16} />}
+              onChange={(e) => setTelegramValue(e.currentTarget.value)}
+              value={telegramValue}
+            />
+          </Input.Wrapper>
+          <Input.Wrapper
+            label="Your name"
+            description="Enter your first and last name."
+            required
+            w={"100%"}
+          >
+            <Input
+              placeholder="Name"
+              variant="filled"
+              leftSection={<IconUser size={16} />}
+              onChange={(e) => setNameValue(e.currentTarget.value)}
+              value={nameValue}
+            />
+          </Input.Wrapper>
+          <Textarea
             variant="filled"
-            leftSection={<IconBrandTelegram size={16} />}
-            onChange={(e) => setTelegramValue(e.currentTarget.value)}
-            value={telegramValue}
+            label="Your message"
+            description="Enter your message so I can help you."
+            placeholder="Your message"
+            required
+            w={"100%"}
+            onChange={(e) => setMessageValue(e.target.value)}
+            value={messageValue}
           />
-        </Input.Wrapper>
-        <Input.Wrapper
-          label="Your name"
-          description="Enter your first and last name."
-          required
-          w={"100%"}
-        >
-          <Input
-            placeholder="Name"
-            variant="filled"
-            leftSection={<IconUser size={16} />}
-            onChange={(e) => setNameValue(e.currentTarget.value)}
-            value={nameValue}
-          />
-        </Input.Wrapper>
-        <Textarea
-          variant="filled"
-          label="Your message"
-          description="Enter your message so I can help you."
-          placeholder="Your message"
-          required
-          w={"100%"}
-          onChange={(e) => setMessageValue(e.target.value)}
-          value={messageValue}
-        />
 
-        <Button
-          type="submit"
-          variant="filled"
-          color="violet"
-          ml={"auto"}
-          loading={isLoading}
-          disabled={
-            (!telegramValue && !emailValue) || !nameValue || !messageValue
-          }
-        >
-          Send
-        </Button>
-      </form>
+          <Button
+            type="submit"
+            variant="filled"
+            color="violet"
+            ml={"auto"}
+            loading={isLoading}
+            disabled={
+              (!telegramValue && !emailValue) || !nameValue || !messageValue
+            }
+          >
+            Send
+          </Button>
+        </form>
+      </Container>
     </div>
   );
 };

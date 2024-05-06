@@ -1,6 +1,45 @@
 .wrapper {
-  margin-top: 200px;
+  padding: 200px 0 100px 0;
   width: 100%;
+  display: flex;
+
+  .contaner {
+    position: relative;
+    width: 50%;
+    height: fit-content;
+
+    &:last-child::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      display: inline-block;
+      content: "";
+      border-left: 1px solid #888;
+      width: 1px;
+    }
+  }
+
+  @media screen and (max-width: 840px) {
+    flex-direction: column;
+    gap: 16px;
+
+    .contaner {
+      width: 100%;
+      
+      &:last-child::before {
+        display: none;
+      }
+
+      &:first-child::after {
+        display: inline-block;
+        content: "";
+        border-top: 1px solid #888;
+        width: 100%;
+        margin-top: 32px;
+      }
+    }
+  }
 
   .title {
     font-size: 28px;
@@ -39,14 +78,6 @@
         }
       }
     }
-
-    &::after {
-      display: inline-block;
-      content: "";
-      border-top: 1px solid #888;
-      width: 100%;
-      margin-top: 32px;
-    }
   }
 
   .form {
@@ -54,7 +85,7 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    padding: 32px 0;
+    padding: 16px 0;
 
     .orBlock {
       display: flex;

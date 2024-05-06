@@ -31,7 +31,7 @@ const NavLinks: FC<NavLinksProps> = ({ toggleModal }) => {
       <Link href={"/education"} style={style3} className={styles.links}>
         Education <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"/skils"} style={style4} className={styles.links}>
+      <Link href={"/skills"} style={style4} className={styles.links}>
         Skills <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
       <Link href={"/experience"} style={style5} className={styles.links}>
