@@ -14,9 +14,10 @@ import { FaGithub } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
 const AboutMe = () => {
+
   return (
-    <Flex gap={16} w={"100%"}>
-      <Flex gap={12} direction={'column'}>
+    <Flex gap={16} w={"100%"} className={styles.wrapper}>
+      <Flex gap={12} direction={'column'} className={styles.text}>
         <Title order={1} className={styles.title}>
           About Me
         </Title>
