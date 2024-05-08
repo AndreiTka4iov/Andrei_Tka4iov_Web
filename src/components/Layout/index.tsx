@@ -2,23 +2,27 @@ import React from "react";
 import { Stack } from "@mantine/core";
 import Header from "../Header";
 import { Roboto } from "next/font/google";
+import clsx from "clsx";
+import styles from "./styles.module.css";
+import Footer from "../Footer";
+import BurgerMenu from "../BurgerMenu";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const roboto = Roboto({
-  weight: '400',
-  subsets: ['latin'],
-})
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <main className={roboto.className}>
+    <main className={clsx(roboto.className, styles.screenWrapper)}>
       <Header />
-      <Stack p={10}>
-        {children}
-      </Stack>
+      <BurgerMenu />
+      <Stack p={10}>{children}</Stack>
+      <Footer />
     </main>
   );
 };

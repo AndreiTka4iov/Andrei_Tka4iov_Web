@@ -1,5 +1,7 @@
 .screenWrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
     background: #000;
 }

@@ -5,7 +5,7 @@ import { useState } from "react";
 import MenuButton from "../Button/MenuButton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import NavLinks from "./NavLinks";
-import { useAppDispatch } from "@/hooks/redux";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { globalSlice } from "@/store/global/globalSlice";
 
 const Header = () => {
@@ -13,7 +13,8 @@ const Header = () => {
   const { width } = useWindowSize();
 
   const dispatch = useAppDispatch();
-  const { toggleContactModal } = globalSlice.actions;
+  const { burgerMenu } = useAppSelector((state) => state.globalSlice);
+  const { toggleContactModal, toggleBurgerMenu } = globalSlice.actions;
   const toggleModal = () => dispatch(toggleContactModal());
 
   return (
@@ -42,7 +43,10 @@ const Header = () => {
                 Contact Me
               </Button>
             )}
-            <MenuButton open={open} onClick={() => setOpen(!open)} />
+            <MenuButton
+              open={burgerMenu}
+              onClick={() => dispatch(toggleBurgerMenu())}
+            />
           </Flex>
         ) : (
           <NavLinks toggleModal={toggleModal} />
