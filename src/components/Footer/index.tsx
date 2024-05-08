@@ -1,4 +1,4 @@
-import { Flex, Text, UnstyledButton, rem } from "@mantine/core";
+import { Flex, ScrollArea, Text, UnstyledButton, rem } from "@mantine/core";
 import styles from "./styles.module.css";
 import Link from "next/link";
 import { FaTelegramPlane } from "react-icons/fa";
@@ -9,9 +9,10 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <Flex gap={16}>
+      <Flex gap={16} justify={"center"} wrap={'wrap'}>
         <Link href={"/"} className={styles.links}>
-          Home<IoIosArrowRoundForward className={styles.linkIcon} />
+          Home
+          <IoIosArrowRoundForward className={styles.linkIcon} />
         </Link>
         <Link href={"/about"} className={styles.links}>
           About Me <IoIosArrowRoundForward className={styles.linkIcon} />
@@ -29,6 +30,7 @@ const Footer = () => {
           Experience <IoIosArrowRoundForward className={styles.linkIcon} />
         </Link>
       </Flex>
+
       <Flex gap={16}>
         <a
           href="https://t.me/tcka4"
