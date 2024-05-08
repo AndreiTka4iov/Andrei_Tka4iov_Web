@@ -1,7 +1,6 @@
 import { Box, Button, Flex, Text } from "@mantine/core";
 import styles from "./styles.module.css";
 import Link from "next/link";
-import { useState } from "react";
 import MenuButton from "../Button/MenuButton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import NavLinks from "./NavLinks";
@@ -9,7 +8,6 @@ import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { globalSlice } from "@/store/global/globalSlice";
 
 const Header = () => {
-  const [open, setOpen] = useState<boolean>(false);
   const { width } = useWindowSize();
 
   const dispatch = useAppDispatch();

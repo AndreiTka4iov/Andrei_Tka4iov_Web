@@ -6,6 +6,7 @@ import clsx from "clsx";
 import styles from "./styles.module.css";
 import Footer from "../Footer";
 import BurgerMenu from "../BurgerMenu";
+import { useAppSelector } from "@/hooks/redux";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,8 +18,17 @@ const roboto = Roboto({
 });
 
 const Layout = ({ children }: LayoutProps) => {
+  const { burgerMenu, contactModal } = useAppSelector(
+    (state) => state.globalSlice
+  );
   return (
-    <main className={clsx(roboto.className, styles.screenWrapper)}>
+    <main
+      className={clsx(
+        roboto.className,
+        styles.screenWrapper,
+        (contactModal || burgerMenu) && styles.scrollHidden
+      )}
+    >
       <Header />
       <BurgerMenu />
       <Stack p={10}>{children}</Stack>
