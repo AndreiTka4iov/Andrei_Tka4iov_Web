@@ -94,10 +94,10 @@ const GetStarted = () => {
             href="https://github.com/AndreiTka4iov"
             className={styles.linkButton}
           >
-            <FaGithub className={styles.icon} /> GitHub
+            <FaGithub className={styles.icon} /> AndreiTka4iov
           </a>
           <a href="https://t.me/tcka4" className={styles.linkButton}>
-            <BiLogoTelegram className={styles.icon} /> Telegram
+            <BiLogoTelegram className={styles.icon} /> tcka4
           </a>
           <a
             href="mailto:andrei.tkachiov@gmail.com"
