@@ -10,6 +10,9 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Flex gap={16}>
+        <Link href={"/"} className={styles.links}>
+          Home<IoIosArrowRoundForward className={styles.linkIcon} />
+        </Link>
         <Link href={"/about"} className={styles.links}>
           About Me <IoIosArrowRoundForward className={styles.linkIcon} />
         </Link>
