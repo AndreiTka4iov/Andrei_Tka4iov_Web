@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import homeSlice from "./home/homeSlice";
 import globalSlice from "./global/globalSlice";
+import projectsSlice from "./projects/projectSlice";
 
 const rootReducer = combineReducers({
   homeSlice,
   globalSlice,
+  projectsSlice
 });
 
 export const setupStore = () => {
