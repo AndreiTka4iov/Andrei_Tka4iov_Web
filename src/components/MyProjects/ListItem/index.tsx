@@ -11,7 +11,7 @@ const ListItem: FC<ListProps> = ({ item }) => {
   return (
     <div className={styles.item}>
       <Flex gap={8}>
-        <Flex direction={"column"} w={130} justify={"space-between"} gap={8}>
+        <Flex direction={"column"} w={130} gap={8}>
           <Image
             src={item.image}
             alt={item.title}
