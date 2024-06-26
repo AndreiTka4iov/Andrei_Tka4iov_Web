@@ -46,7 +46,7 @@ const ActionButtons = () => {
                 component="a"
                 href="/about"
               >
-                About me
+                About Me
               </Menu.Item>
               <Menu.Item
                 leftSection={<BiGitRepoForked />}

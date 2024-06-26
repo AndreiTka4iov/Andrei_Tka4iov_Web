@@ -1,0 +1,130 @@
+.wrapper {
+    @media screen and (max-width: 840px) {
+      flex-direction: column-reverse;
+    }
+    .text {
+      width: calc(100% - 250px);
+  
+      @media screen and (max-width: 840px) {
+        width: 100%;
+      }
+  
+      .title {
+        background: linear-gradient(180deg, #fff, #adadad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-size: 48px;
+        letter-spacing: -0.05em;
+        position: relative;
+      }
+  
+      .descr {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        margin: 0 auto;
+        max-width: 750px;
+  
+        color: #888;
+        font-size: max(15px, min(2vw, 20px));
+        line-height: 1.4;
+        letter-spacing: var(--letter-spacing-1);
+        font-weight: 400;
+      }
+  
+      .navLinks {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+  
+        a {
+          display: flex;
+          font-size: 14px;
+          color: #888;
+          transition: 0.2s color;
+  
+          .icon {
+            transition: 0.2s fill;
+          }
+  
+          @media screen and (min-width: 1050px) {
+            font-size: 16px;
+          }
+  
+          &.socialLinks {
+            opacity: 0;
+            transform: translateX(100px);
+            animation: showSocialLink 0.7s ease forwards;
+            animation-delay: calc(0.1s * var(--l));
+  
+            &:hover {
+              .icon {
+                fill: #6350d8;
+              }
+            }
+  
+            @keyframes showSocialLink {
+              0% {
+                opacity: 0;
+                transform: translateX(100px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateX(0px);
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .image {
+      width: 250px;
+      height: 250px;
+      position: relative;
+  
+      .wave {
+        position: absolute;
+        z-index: var(--i);
+        top: 15px;
+        left: 25px;
+        width: 200px;
+        height: 220px;
+        border-radius: 45%;
+        background: linear-gradient(
+          90deg,
+          rgba(75, 0, 130, 1) 0%,
+          rgba(99, 80, 216, 1) 100%
+        );
+        animation: wave calc(20s / var(--i)) infinite linear;
+        opacity: calc(1 / var(--i));
+      }
+  
+      @keyframes wave {
+        from {
+          transform: rotate(0deg);
+        }
+        from {
+          transform: rotate(360deg);
+        }
+      }
+  
+      .imageChilder {
+        position: absolute;
+        z-index: 10;
+        top: 25px;
+        right: 25px;
+        bottom: 25px;
+        left: 25px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+  }
+  

@@ -11,82 +11,42 @@ import {
 import styles from "./styles.module.css";
 import { useAppSelector } from "@/hooks/redux";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import FloatingIndicatorComponent from "../FloatingIndicatiorComponent";
+import { CiBoxList } from "react-icons/ci";
+import { CiGrid41 } from "react-icons/ci";
+import CardItem from "./CardItem";
+import { useState } from "react";
+import ListItem from "./ListItem";
 
 const MyProjects = () => {
+  const [listType, setListType] = useState<number>(0);
   const { data } = useAppSelector((state) => state.projectsSlice);
-
   const less729px = useWindowSize().width < 729;
 
   return (
     <div className={styles.wrapper}>
-      <Title order={1} className={styles.title}>
-        Projects
-      </Title>
+      <Flex justify={"space-between"} align={"center"}>
+        <Title order={1} className={styles.title}>
+          Projects
+        </Title>
+        <FloatingIndicatorComponent
+          items={[
+            { label: "1", icon: <CiGrid41 size={16} /> },
+            { label: "2", icon: <CiBoxList size={16} /> },
+          ]}
+          selected={(index) => setListType(index)}
+        />
+      </Flex>
       <Flex
         wrap={"wrap"}
         gap={16}
         mt={16}
         justify={less729px ? "center" : "start"}
       >
-        {data.map((item) => (
-          <Card
-            withBorder
-            radius="md"
-            p="md"
-            className={styles.card}
-            key={item.id}
-            w={330}
-            h={463}
-          >
-            <Card.Section>
-              <Image
-                src={item.image}
-                alt={item.title}
-                w={330}
-                h={180}
-                p={item.padding}
-                fit="contain"
-              />
-            </Card.Section>
-            <Card.Section className={styles.section} mt="md">
-              <Group justify="apart">
-                <Text fz="lg" fw={500}>
-                  {item.title}
-                </Text>
-                <Badge size="sm" variant="light">
-                  {item.tag}
-                </Badge>
-              </Group>
-              <Text fz="sm" mt="xs">
-                {item.desc}
-              </Text>
-            </Card.Section>
-            <Card.Section className={styles.section}>
-              <Text mt="md" className={styles.label} c="dimmed">
-                Stack
-              </Text>
-              <Group gap={7} mt={5}>
-                {item.badges.map((el) => (
-                  <Badge variant="filled" key={el.label} color={el.color}>
-                    {el.label}
-                  </Badge>
-                ))}
-              </Group>
-              <Group mt="xs">
-                <Button
-                  radius="md"
-                  variant="filled"
-                  color="violet"
-                  w={"100%"}
-                  component="a"
-                  href={item.href}
-                >
-                  Go to work
-                </Button>
-              </Group>
-            </Card.Section>
-          </Card>
-        ))}
+        {data.map((item) => {
+          if (listType === 0) return <CardItem item={item} key={item.id} />;
+          else return <ListItem item={item} key={item.id}/>;
+        })}
       </Flex>
     </div>
   );

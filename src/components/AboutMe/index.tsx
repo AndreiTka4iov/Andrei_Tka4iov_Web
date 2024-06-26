@@ -14,17 +14,18 @@ import { FaGithub } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
 const AboutMe = () => {
-
   return (
     <Flex gap={16} w={"100%"} className={styles.wrapper}>
-      <Flex gap={12} direction={'column'} className={styles.text}>
-        <Title order={1} className={styles.title}>
-          About Me
-        </Title>
+      <Flex gap={12} direction={"column"} className={styles.text}>
+        <Flex justify={'space-between'}>
+          <Title order={1} className={styles.title}>
+            About Me
+          </Title>
+        </Flex>
         <Box>
           <p className={styles.descr}>
             Hello, my name is Andrei Tkachev. I live in the city of Moscow. I am
-            a Full stack developer with commercial experience of more than 2
+            a Full stack developer with commercial experience of more than 3
             years. Additionally, I am engaged in freelance projects. I am always
             open for new proposals. If you have a job offer, want to get help or
             just want to contact me, please use the links on the page header or
