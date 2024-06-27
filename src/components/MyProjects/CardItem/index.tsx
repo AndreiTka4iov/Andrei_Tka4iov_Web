@@ -1,16 +1,8 @@
-import {
-  Flex,
-  Title,
-  Card,
-  Image,
-  Group,
-  Text,
-  Badge,
-  Button,
-} from "@mantine/core";
+import { Card, Image, Group, Text, Badge, Button } from "@mantine/core";
 import styles from "./styles.module.css";
 import { data } from "@/types/projects";
 import { FC } from "react";
+import clsx from "clsx";
 
 interface CardProps {
   item: data;
@@ -25,7 +17,6 @@ const CardItem: FC<CardProps> = ({ item }) => {
       className={styles.card}
       key={item.id}
       w={330}
-      h={463}
     >
       <Card.Section>
         <Image
@@ -50,7 +41,7 @@ const CardItem: FC<CardProps> = ({ item }) => {
           {item.desc}
         </Text>
       </Card.Section>
-      <Card.Section className={styles.section}>
+      <Card.Section className={clsx(styles.section, styles.bordered)} mt={"auto"}>
         <Text mt="md" className={styles.label} c="dimmed">
           Stack
         </Text>

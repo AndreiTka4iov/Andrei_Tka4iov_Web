@@ -10,7 +10,7 @@ const initialState: projectsState = {
     {
       id: 2,
       title: "Signalinks",
-      desc: "Frontend project with Next.js, React, Tailwind, RTK Query, Mantine UI, GraphQL.js, Apollo Client ",
+      desc: "Signalink.ru is a frontend project built using Next.js, React, Tailwind CSS, RTK Query, Mantine UI, GraphQL.js, and Apollo Client. The platform leverages these modern technologies to deliver a high-performance, responsive, and visually appealing user interface, enabling efficient data fetching and state management through GraphQL and Apollo Client.",
       image:
         "https://dashboard.signalinks.ru/strapi-static/signalinks_logo_574702c9c9.svg",
       href: "https://www.signalinks.ru",
@@ -46,8 +46,9 @@ const initialState: projectsState = {
     {
       id: 1,
       title: "Airbnb Clone",
-      desc: "Full Stack Airbnb Clone with Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_Bélo.svg/1280px-Airbnb_Logo_Bélo.svg.png",
+      desc: "The Airbnb clone is a full stack project developed with Next.js 13 App Router, React, Tailwind CSS, Prisma, MongoDB, and NextAuth. This platform replicates the core functionalities of Airbnb, providing a seamless user experience for booking accommodations, with secure authentication and efficient database management. The use of modern technologies ensures a responsive and scalable application.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_Bélo.svg/1280px-Airbnb_Logo_Bélo.svg.png",
       href: "https://www.airbnb.andreitkachev.com",
       tag: "Full stack",
       padding: 20,

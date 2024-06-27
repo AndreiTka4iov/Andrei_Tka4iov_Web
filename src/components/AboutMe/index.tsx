@@ -1,81 +1,45 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Image,
-  Title,
-  UnstyledButton,
-  rem,
-} from "@mantine/core";
+import { Box, Container, Flex, Image, Text, Title } from "@mantine/core";
 import styles from "./styles.module.css";
 import { CSSProperties } from "react";
-import { IoMdMail } from "react-icons/io";
-import { FaGithub } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
 
 const AboutMe = () => {
   return (
     <Flex gap={16} w={"100%"} className={styles.wrapper}>
       <Flex gap={12} direction={"column"} className={styles.text}>
-        <Flex justify={'space-between'}>
+        <Flex justify={"space-between"}>
           <Title order={1} className={styles.title}>
             About Me
           </Title>
         </Flex>
         <Box>
-          <p className={styles.descr}>
+          <Text className={styles.descr}>
             Hello, my name is Andrei Tkachev. I live in the city of Moscow. I am
-            a Full stack developer with commercial experience of more than 3
-            years. Additionally, I am engaged in freelance projects. I am always
-            open for new proposals. If you have a job offer, want to get help or
-            just want to contact me, please use the links on the page header or
-            fill out the contact form. I will definitely get in touch with you.
-          </p>
+            a Fullstack Developer with over 3 years of commercial experience. My
+            expertise spans across various domains, including leading
+            development teams, optimizing code, and implementing new
+            technologies.
+            <br />
+            <br />
+            I have held positions such as Head of IT Department and Tech Lead
+            Frontend Developer at ООО НФ АЙТИ, where I managed teams, developed
+            comprehensive documentation, and launched significant projects using
+            methodologies like SCRUM. My technical skills include Redux,
+            JavaScript, TypeScript, Sass, HTML5, CSS3, Node.js, MongoDB,
+            PostgreSQL, React, Next.js, NestJS, MobX, Express.js, and Jest.
+            <br />
+            <br />
+            Additionally, I engage in freelance projects. I am always open to
+            new proposals. If you have a job offer, need help with a project, or
+            simply want to get in touch, please use the links on the page header
+            or fill out the contact form. I will definitely get in touch with
+            you.
+            <br />
+            <br />
+            Thank you for your interest!
+            <br />
+            <br />
+          </Text>
         </Box>
-        <div className={styles.navLinks}>
-          <a
-            href="https://t.me/tcka4"
-            target="_blank"
-            rel="noreferrer"
-            style={{ "--l": 1 } as React.CSSProperties}
-            className={styles.socialLinks}
-          >
-            <UnstyledButton onClick={() => {}} className={styles.mainLink}>
-              <FaTelegramPlane
-                style={{ width: rem(22), height: rem(22) }}
-                className={styles.icon}
-              />
-            </UnstyledButton>
-          </a>
-          <a
-            href="mailto:andrei.tkachiov@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-            style={{ "--l": 2 } as React.CSSProperties}
-            className={styles.socialLinks}
-          >
-            <UnstyledButton onClick={() => {}} className={styles.mainLink}>
-              <IoMdMail
-                style={{ width: rem(22), height: rem(22) }}
-                className={styles.icon}
-              />
-            </UnstyledButton>
-          </a>
-          <a
-            href="https://github.com/AndreiTka4iov"
-            target="_blank"
-            rel="noreferrer"
-            style={{ "--l": 3 } as React.CSSProperties}
-            className={styles.socialLinks}
-          >
-            <UnstyledButton onClick={() => {}} className={styles.mainLink}>
-              <FaGithub
-                style={{ width: rem(22), height: rem(22) }}
-                className={styles.icon}
-              />
-            </UnstyledButton>
-          </a>
-        </div>
       </Flex>
       <Container className={styles.image}>
         <div className={styles.wave} style={{ "--i": 1 } as CSSProperties} />
