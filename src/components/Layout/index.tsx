@@ -18,7 +18,7 @@ const roboto = Roboto({
 });
 
 const Layout = ({ children }: LayoutProps) => {
-  const { burgerMenu, contactModal } = useAppSelector(
+  const { modals } = useAppSelector(
     (state) => state.globalSlice
   );
   return (
@@ -26,12 +26,12 @@ const Layout = ({ children }: LayoutProps) => {
       className={clsx(
         roboto.className,
         styles.screenWrapper,
-        (contactModal || burgerMenu) && styles.scrollHidden
+        (modals.contact || modals.burger) && styles.scrollHidden
       )}
     >
       <Header />
       <BurgerMenu />
-      <Stack p={10}>{children}</Stack>
+      <Stack p={8} className={styles.wrapper}>{children}</Stack>
       <Footer />
     </main>
   );

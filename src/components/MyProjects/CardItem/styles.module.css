@@ -1,15 +1,16 @@
 .card {
   background-color: #111;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: #222;
+  }
 }
 
 .section {
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
   padding-bottom: var(--mantine-spacing-md);
-
-  &.bordered {
-    border-top: 1px solid rgb(66, 66, 66) !important;
-  }
 }
 
 .label {

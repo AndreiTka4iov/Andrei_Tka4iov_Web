@@ -76,6 +76,7 @@
       transform: translateY(-100px);
       animation: showLink 0.5s ease forwards;
       animation-delay: calc(0.12s * var(--i));
+      cursor: pointer;
 
       @keyframes showLink {
         0% {
@@ -124,11 +125,11 @@
 
     &:focus-visible {
       border: none;
-      outline-color: #6350d8;
+      outline-color: #0072ff;
     }
     &:focus {
       border: none;
-      outline-color: #6350d8;
+      outline-color: #0072ff;
     }
   }
 
@@ -143,7 +144,7 @@
     animation-delay: 0.2s;
 
     &:hover {
-      background: #6350d8;
+      background: #0072ff;
     }
 
     @keyframes showContactButton {
@@ -171,7 +172,7 @@
 
     &:hover {
       .icon {
-        fill: #6350d8;
+        fill: #0072ff;
       }
     }
   }

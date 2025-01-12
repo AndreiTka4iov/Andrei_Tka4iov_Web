@@ -20,9 +20,9 @@ const Footer = () => {
         <Link href={"/projects"} className={styles.links}>
           Projects <IoIosArrowRoundForward className={styles.linkIcon} />
         </Link>
-        <Link href={"/education"} className={styles.links}>
+        {/* <Link href={"/education"} className={styles.links}>
           Education <IoIosArrowRoundForward className={styles.linkIcon} />
-        </Link>
+        </Link> */}
         <Link href={"/skills"} className={styles.links}>
           Skills <IoIosArrowRoundForward className={styles.linkIcon} />
         </Link>

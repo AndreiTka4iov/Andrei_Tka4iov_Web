@@ -1,15 +1,13 @@
 .root {
     position: relative;
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+    background-color: #000;
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     width: fit-content;
     height: fit-content;
-    border-radius: var(--mantine-radius-md);
     padding: 5px;
-    border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
   }
   
   .control {
@@ -31,7 +29,7 @@
     }
   
     &[data-active] {
-      color: var(--mantine-color-white);
+      color: #0072ff;
     }
   }
   
@@ -41,6 +39,6 @@
   }
   
   .indicator {
-    background-color: rgb(103, 65, 217);
+    background-color: #0072ff;
     border-radius: var(--mantine-radius-md);
   }

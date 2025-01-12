@@ -1,11 +1,12 @@
 import { Button, Container, Tooltip, UnstyledButton, rem } from "@mantine/core";
 import styles from "./styles.module.css";
-import Link from "next/link";
+
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import React, { FC } from "react";
+import { Link } from "react-scroll";
 
 interface NavLinksProps {
   toggleModal: () => void;
@@ -22,25 +23,60 @@ const NavLinks: FC<NavLinksProps> = ({ toggleModal }) => {
 
   return (
     <nav className={styles.navLinks}>
-      <Link href={"/about"} style={style1} className={styles.links}>
+      <Link
+        to="about"
+        smooth={true}
+        offset={-80}
+        duration={500}
+        style={style1}
+        className={styles.links}
+      >
+        {" "}
         About Me <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"/projects"} style={style2} className={styles.links}>
-        Projects <IoIosArrowRoundForward className={styles.linkIcon} />
-      </Link>
-      <Link href={"/education"} style={style3} className={styles.links}>
+      <Link
+        to={"education"}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        style={style2}
+        className={styles.links}
+      >
         Education <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"/skills"} style={style4} className={styles.links}>
+      <Link
+        to={"skills"}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        style={style3}
+        className={styles.links}
+      >
         Skills <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Link href={"/experience"} style={style5} className={styles.links}>
+      <Link
+        to={"experience"}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        style={style4}
+        className={styles.links}
+      >
         Experience <IoIosArrowRoundForward className={styles.linkIcon} />
       </Link>
-      <Container className={styles.clearButton} />
+      <Link
+        to={"projects"}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        style={style5}
+        className={styles.links}
+      >
+        Projects <IoIosArrowRoundForward className={styles.linkIcon} />
+      </Link>
       <Button
         variant="gradient"
-        gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
+        gradient={{ from: "#00c6ff", to: "#0072ff", deg: 45 }}
         size="xs"
         radius="md"
         className={styles.button}

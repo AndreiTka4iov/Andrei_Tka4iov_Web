@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import homeSlice from "./home/homeSlice";
 import globalSlice from "./global/globalSlice";
 import projectsSlice from "./projects/projectSlice";
+import { contentAPI } from "@/API/Content";
 
 const rootReducer = combineReducers({
   homeSlice,
   globalSlice,
-  projectsSlice
+  projectsSlice,
+  [contentAPI.reducerPath]: contentAPI.reducer,
 });
 
 export const setupStore = () => {

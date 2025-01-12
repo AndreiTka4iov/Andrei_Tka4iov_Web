@@ -1,24 +1,37 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export type modalsType = "contact" | "photo" | "burger";
+
 interface homeState {
-  contactModal: boolean;
-  burgerMenu: boolean;
+  modals: { [key in modalsType]: boolean };
 }
 
 const initialState: homeState = {
-  contactModal: false,
-  burgerMenu: false,
+  modals: {
+    contact: false,
+    photo: false,
+    burger: false,
+  },
 };
 
 export const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
-    toggleContactModal(state) {
-      state.contactModal = !state.contactModal;
+    toggleModal(state, actions: PayloadAction<modalsType>) {
+      state.modals[actions.payload] = !state.modals[actions.payload];
     },
-    toggleBurgerMenu(state) {
-      state.burgerMenu = !state.burgerMenu;
+    setIsOpenModal(state, actions: PayloadAction<modalsType>) {
+      state.modals[actions.payload] = true;
+    },
+    setIsCloseModal(state, actions: PayloadAction<modalsType>) {
+      state.modals[actions.payload] = false;
+    },
+    setIsStateModal(
+      state,
+      actions: PayloadAction<{ type: modalsType; state: boolean }>
+    ) {
+      state.modals[actions.payload.type] = actions.payload.state;
     },
   },
 });

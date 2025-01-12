@@ -3,10 +3,5 @@
     flex-direction: column;
     width: 100%;
     min-height: -webkit-fill-available;
-    max-height: -webkit-fill-available;
     background: #000;
-
-    &.scrollHidden {
-        overflow: hidden;
-    }
 }

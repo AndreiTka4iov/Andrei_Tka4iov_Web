@@ -1,24 +1,26 @@
 import { Box, Button, Flex, Text } from "@mantine/core";
 import styles from "./styles.module.css";
-import Link from "next/link";
+
 import MenuButton from "../Button/MenuButton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import NavLinks from "./NavLinks";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { globalSlice } from "@/store/global/globalSlice";
+import { useModal } from "@/hooks/modals/useModal";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const { width } = useWindowSize();
-
-  const dispatch = useAppDispatch();
-  const { burgerMenu } = useAppSelector((state) => state.globalSlice);
-  const { toggleContactModal, toggleBurgerMenu } = globalSlice.actions;
-  const toggleModal = () => dispatch(toggleContactModal());
+  const { status, toggleModal } = useModal("burger");
 
   return (
     <header className={styles.header}>
       <section className={styles.headerSection}>
-        <Link href={"/"} className={styles.logo}>
+        <Link
+          to={"home"}
+          smooth={true}
+          offset={-200}
+          duration={500}
+          className={styles.logo}
+        >
           <Text size={"lg"} color="#888">
             /
           </Text>
@@ -33,21 +35,18 @@ const Header = () => {
             {width > 530 && (
               <Button
                 variant="gradient"
-                gradient={{ from: "indigo", to: "#6350d8", deg: 45 }}
+                gradient={{ from: "#00c6ff", to: "#0072ff", deg: 45 }}
                 radius="md"
                 className={styles.button}
-                onClick={toggleModal}
+                onClick={() => toggleModal("contact")}
               >
                 Contact Me
               </Button>
             )}
-            <MenuButton
-              open={burgerMenu}
-              onClick={() => dispatch(toggleBurgerMenu())}
-            />
+            <MenuButton open={status} onClick={() => toggleModal()} />
           </Flex>
         ) : (
-          <NavLinks toggleModal={toggleModal} />
+          <NavLinks toggleModal={() => toggleModal("contact")} />
         )}
       </section>
     </header>

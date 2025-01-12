@@ -1,32 +1,22 @@
 import { useDebouncedValue } from "@mantine/hooks";
-import { useMemo, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../redux";
-import { globalSlice } from "@/store/global/globalSlice";
+import { useEffect, useState } from "react";
+import { useModal } from "./useModal";
 
 export const useContactModal = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const {status, toggleModal} = useModal("contact");
   const [nameValue, setNameValue] = useState<string>("");
   const [emailValue, setEmailValue] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messageValue, setMessageValue] = useState<string>("");
   const [telegramValue, setTelegramValue] = useState<string>("");
+  const [validateEmail, setValidateEmail] = useState<boolean>(true);
+  const [emailValueDebounce] = useDebouncedValue<string>(emailValue, 800);
 
-  const [emailValueDebounce] = useDebouncedValue<string>(emailValue, 400);
-
-  const { contactModal } = useAppSelector((state) => state.globalSlice);
-  const { toggleContactModal } = globalSlice.actions;
-  const dispatch = useAppDispatch();
-
-  const toggleModal = () => dispatch(toggleContactModal());
-
-  const validateEmail = useMemo<boolean>(() => {
-    if (!emailValue) return true;
-
+  useEffect(() => {
     const validRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    if (emailValueDebounce.match(validRegex)) return true;
-    else return false;
+    setValidateEmail(!emailValue || !!emailValueDebounce.match(validRegex));
   }, [emailValueDebounce]);
 
   const clearModal = () => {
@@ -37,7 +27,7 @@ export const useContactModal = () => {
   };
 
   return {
-    contactModal,
+    status,
     toggleModal,
     clearModal,
 

@@ -18,7 +18,7 @@ import { contactApi } from "@/API/contact/route";
 
 const ContactModal = () => {
   const {
-    contactModal,
+    status,
     toggleModal,
     clearModal,
 
@@ -44,12 +44,15 @@ const ContactModal = () => {
     if ((!emailValue && !telegramValue) || !nameValue || !messageValue) return;
 
     try {
-      await contactApi({
-        email: emailValue,
-        telegram: telegramValue,
-        name: nameValue,
-        message: messageValue,
-      });
+      const message =
+        `New message from portfolio form:
+        
+👤 Name: ${nameValue}
+📧 Email: ${emailValue}
+Telegram: ${telegramValue}
+📝 Message:
+${messageValue}`.trim();
+      await contactApi(message);
 
       notifications.show({
         title: "All good!",
@@ -76,12 +79,7 @@ const ContactModal = () => {
   };
 
   return (
-    <Modal.Root
-      opened={contactModal}
-      onClose={toggleModal}
-      centered
-      zIndex={1000}
-    >
+    <Modal.Root opened={status} onClose={toggleModal} centered zIndex={1000}>
       <Modal.Overlay blur={2.5} />
       <Modal.Content
         bg={"#000"}
@@ -164,7 +162,7 @@ const ContactModal = () => {
               value={messageValue}
             />
             <Flex gap={16} className={styles.actionButtonBlock}>
-              <Button w={"50%"} variant="default" onClick={toggleModal}>
+              <Button w={"50%"} variant="default" onClick={() => toggleModal()}>
                 Close
               </Button>
               <Button

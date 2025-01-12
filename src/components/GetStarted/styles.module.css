@@ -71,10 +71,10 @@
       font-weight: 600;
 
       &:hover {
-        color: #6350d8;
+        color: #0072ff;
 
         .icon {
-          fill: #6350d8;
+          fill: #0072ff;
         }
       }
     }

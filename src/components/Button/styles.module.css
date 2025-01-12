@@ -23,8 +23,7 @@
     position: absolute;
     font-size: 28px;
     top: 0;
-    left: 6px;
-    right: 6px;
+    width: 100%;
     transition: 0.4s transform, 0.4s top;
   }
 
@@ -32,20 +31,19 @@
     position: absolute;
     font-size: 28px;
     bottom: 0;
-    left: 6px;
-    right: 6px;
+    width: 100%;
     transition: 0.4s transform, 0.4s bottom;
   }
 
   &.active {
     .menuFirstLine {
       transform: rotate(45deg);
-      top: 6px;
+      top: 3px;
     }
 
     .menuSecondLine {
       transform: rotate(-45deg);
-      bottom: 6px;
+      bottom: 3px;
     }
   }
 }

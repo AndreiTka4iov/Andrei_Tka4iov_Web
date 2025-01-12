@@ -1,5 +1,4 @@
 .wrapper {
-  padding: 0 16px;
   .title {
     background: linear-gradient(180deg, #fff, #adadad);
     -webkit-background-clip: text;
@@ -15,13 +14,9 @@
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 12px;
     margin-top: 30px;
-  }
-}
 
-.subheading {
-  background: #00c6ff;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  font-size: 1.8rem;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
 }

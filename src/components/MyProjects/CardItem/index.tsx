@@ -1,4 +1,13 @@
-import { Card, Image, Group, Text, Badge, Button } from "@mantine/core";
+import {
+  Card,
+  Image,
+  Group,
+  Text,
+  Badge,
+  Button,
+  Flex,
+  ScrollArea,
+} from "@mantine/core";
 import styles from "./styles.module.css";
 import { data } from "@/types/projects";
 import { FC } from "react";
@@ -11,18 +20,17 @@ interface CardProps {
 const CardItem: FC<CardProps> = ({ item }) => {
   return (
     <Card
-      withBorder
       radius="md"
       p="md"
       className={styles.card}
       key={item.id}
-      w={330}
+      
     >
       <Card.Section>
         <Image
           src={item.image}
           alt={item.title}
-          w={330}
+          w={'100%'}
           h={180}
           p={item.padding}
           fit="contain"
@@ -30,38 +38,44 @@ const CardItem: FC<CardProps> = ({ item }) => {
       </Card.Section>
       <Card.Section className={styles.section} mt="md">
         <Group justify="apart">
-          <Text fz="lg" fw={500}>
+          <Text fz="lg" fw={600}>
             {item.title}
           </Text>
           <Badge size="sm" variant="light">
             {item.tag}
           </Badge>
         </Group>
-        <Text fz="sm" mt="xs">
+        <Text fz="sm" mt="xs" c={'gray'}>
           {item.desc}
         </Text>
       </Card.Section>
-      <Card.Section className={clsx(styles.section, styles.bordered)} mt={"auto"}>
+      <Card.Section
+        className={clsx(styles.section, styles.bordered)}
+        mt={"auto"}
+      >
         <Text mt="md" className={styles.label} c="dimmed">
           Stack
         </Text>
-        <Group gap={7} mt={5}>
-          {item.badges.map((el) => (
-            <Badge variant="filled" key={el.label} color={el.color}>
-              {el.label}
-            </Badge>
-          ))}
-        </Group>
+        <ScrollArea scrollbarSize={0}>
+          <Flex gap={7} mt={5} w={"fit-content"}>
+            {item.badges.map((el) => (
+              <Badge variant="filled" key={el.label} color={el.color}>
+                {el.label}
+              </Badge>
+            ))}
+          </Flex>
+        </ScrollArea>
         <Group mt="xs">
           <Button
             radius="md"
             variant="filled"
-            color="violet"
+            color="#0072ff"
             w={"100%"}
             component="a"
             href={item.href}
+            disabled={!item.href}
           >
-            To project page
+            View Project
           </Button>
         </Group>
       </Card.Section>
