@@ -72,7 +72,7 @@ const Footer = () => {
           </UnstyledButton>
         </a>
       </Flex>
-      <Text className={styles.text}>© 2024 All Rights Reserved</Text>
+      <Text className={styles.text}>© 2025 All Rights Reserved</Text>
     </footer>
   );
 };
