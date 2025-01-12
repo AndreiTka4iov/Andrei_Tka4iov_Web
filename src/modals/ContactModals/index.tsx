@@ -88,6 +88,7 @@ ${messageValue}`.trim();
       >
         <LoadingOverlay
           visible={isLoading}
+          c={'#0072ff'}
           zIndex={1000}
           overlayProps={{ radius: "sm", blur: 2 }}
           loaderProps={{ color: "violet" }}
@@ -169,7 +170,7 @@ ${messageValue}`.trim();
                 type="submit"
                 w={"50%"}
                 variant="filled"
-                color="violet"
+                color="#0072ff"
                 disabled={
                   (!telegramValue && !emailValue) || !nameValue || !messageValue
                 }
